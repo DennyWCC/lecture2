@@ -6,11 +6,11 @@ app = Flask(__name__)
 
 #dynamic content based on given url
 #html dynamic url use case example
-@app.route("/")
+@app.route("/templates/")
 def index():
     return render_template("index.html")
 
-@app.route("/more")
+@app.route("/templates/more")
 def more():
     return render_template("more.html")
 
