@@ -6,18 +6,14 @@ app = Flask(__name__)
 
 #dynamic content based on given url
 #html dynamic url use case example
-<<<<<<< HEAD
-@app.route("/templates/")
-=======
-'''@app.route("/")
->>>>>>> parent of f6a4d95... Update application.py
+@app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("templates/index.html")
 
-@app.route("/templates/more")
+@app.route("more")
 def more():
-    return render_template("more.html")
-'''
+    return render_template("templates/more.html")
+
 
 #dynamic content based on 'htmlnames' variable
 #html loop use case example
