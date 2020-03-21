@@ -1,12 +1,31 @@
 import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
+from flask_session import Session
 
 app = Flask(__name__)
 
 #dynamic content based on given url
+#html dynamic url - layout template - session use case example
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if session.get("notes") is None:
+        session["notes"] = []
+
+    if request.method == "POST":
+        note = request.form.get("note")
+        session["notes"].append(note)
+
+    return render_template("layout_session_index.html", notes=session["notes"])
+
+
+#dynamic content based on given url
 #html dynamic url - layout template - form use case example
-@app.route("/")
+'''@app.route("/")
 def index():
     return render_template("layout_form_index.html")
 
@@ -17,6 +36,8 @@ def hello():
     else:
         name = request.form.get("name")
         return render_template("layout_hello.html", name=name)
+'''
+
 
 #dynamic content based on given url
 #html dynamic url - layout template use case example
