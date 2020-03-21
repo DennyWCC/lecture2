@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  First Page
+{% endblock %}
+
+<!-- dynamic url - layout template use case in HTML -->
+{% block body %}
+  <p>
+      Lorem ipsum dolor sit amet
+  </p>
+
+  <a href="{{ url_for('more') }}">See more</a>
+{% endblock %}
+
+
+<!--
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <title>My Website!</title>
+    </head>
+    <body>
+-->
+
+      <!-- dynamic url use case in HTML -->
+      <!-- <h1>First Page</h1>
+      <p>Some paragraph of first page</p>
+      <a href="{{ url_for('more') }}">See more</a>-->
+
+      <!-- loop use case in HTML -->
+      <!-- <h1>Names</h1>
+      <ul>
+        {% for name in htmlnames %}
+          <li>{{ name }}</li>
+        {% endfor %}
+      </ul> -->
+
+      <!--<h1>{{ htmlheadline }}</h1>-->
+
+      <!-- conditional use case in HTML -->
+      <!-- {% if htmlnew_year %}
+        <h1>it's new year</h1>
+      {% else %}
+        <h1>nope</h1>
+      {% endif %} -->
+
+<!--
+    </body>
+  </html>
+-->

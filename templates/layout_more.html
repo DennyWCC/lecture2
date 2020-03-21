@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  Second Page
+{% endblock %}
+
+{% block body %}
+  <p>
+      Donec lobortis dapibus magna
+  </p>
+
+  <a href="{{ url_for('index') }}">See more</a>
+{% endblock %}
+
+
+<!--<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Website!</title>
+  </head>
+  <body>
+    <h1>Second Page</h1>
+    <p>Some paragraph of second page</p>
+    <a href="{{ url_for('index') }}">Go back</a>
+  </body>
+</html>-->

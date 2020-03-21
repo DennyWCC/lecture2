@@ -1,19 +1,44 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 #dynamic content based on given url
-#html dynamic url use case example
+#html dynamic url - layout template - form use case example
 @app.route("/")
 def index():
-    return render_template("templates/index.html")
+    return render_template("layout_form_index.html")
 
-@app.route("more")
+@app.route("/hello", methods=["GET", "POST"])
+def hello():
+    if request.method == "GET":
+        return "Please submit the form instead."
+    else:
+        name = request.form.get("name")
+        return render_template("layout_hello.html", name=name)
+
+#dynamic content based on given url
+#html dynamic url - layout template use case example
+'''@app.route("/")
+def index():
+    return render_template("layout_index.html")
+
+@app.route("/more")
 def more():
-    return render_template("templates/more.html")
+    return render_template("layout_more.html")
+'''
 
+#dynamic content based on given url
+#html dynamic url use case example
+'''@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/more")
+def more():
+    return render_template("more.html")
+'''
 
 #dynamic content based on 'htmlnames' variable
 #html loop use case example
